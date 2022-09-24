@@ -4,4 +4,4 @@
 # Setting up local environment
 * Database setup(hard code the database creds in calculator/setting.py file change them accordingly)
 ## Start server
-* runserver in 9000 port (as port 8000 will be used for monolithic)
+* runserver(./manage.py runserver)
