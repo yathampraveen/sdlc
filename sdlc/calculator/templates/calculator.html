@@ -1,0 +1,67 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+{% block extrahead %}
+{% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="/admin"}>Home</a>
+        Floating Point Calculator
+    </div>
+{% endblock %}
+{% block content %}
+       <form action="" method="post" >
+    {% csrf_token %}
+   <table id="dc-config" class="dc-config-table">
+       <caption></caption>
+        <tbody id="dc-pst-batch">
+       <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+       </tr>
+        <tr>
+            <td><label><strong>Type of value </strong>(Mandatory):</label></td>
+            <td>
+                <select name="type" id="sel" class="dc_sel" required>
+                    <option value="">---Select Type---</option>
+                    {%  for type in typeslist %}
+                        <option value="{{ type.0}}">{{ type.1 }}</option>
+                    {%  endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label><strong>Operation</strong></label></td>
+            <td>
+                <select name="operation" required>
+                    <option value="">---Select Operator---</option>
+                    {%  for each in operatorlist %}
+                        <option value="{{ each.0 }}">{{ each.1 }}</option>
+                    {%  endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label><strong>Operator 1</strong> <br><small>(enter first operator)</small></label>
+            <td><input name="operator1"  required/></td>
+        </tr>
+        <tr>
+            <td><label><strong>Operator 2</strong><br><small>(enter second operator)</small></label>
+            <td><input  name="operator2"  required /></td>
+        </tr>
+         <tr>
+            <td><label><strong>Result</strong></label>
+            <td><input  name="result"  required /></td>
+        </tr>
+    </tbody>
+   </table>
+    <input type="submit" value="Submit" onclick="return preparePstBatchIds()">
+ </form>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+<script src="{% static 'js/bbdaily.js' %}"></script>
+<script type="text/javascript">
+</script>
+{% endblock %}
