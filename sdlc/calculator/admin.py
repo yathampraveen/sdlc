@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 
 from .models import Calculator
@@ -22,7 +24,7 @@ class CalculatorAdmin(admin.ModelAdmin):
         """
         Return the custom search url for this admin page
         """
-        return None
+        return reverse("calculator-view")
 
     def changelist_view(self, request, extra_context=None):
 

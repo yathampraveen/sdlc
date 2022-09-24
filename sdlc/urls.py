@@ -24,7 +24,7 @@ INDEX_TITLE = "Welcome to Floating Point Calculator"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("/admin/calculator/", include('sdlc.calculator.urls')),
+    path("admin/base/", include('sdlc.calculator.urls')),
 
 ]
 admin.site.site_header = "Floating Point Calculator"
